@@ -1,0 +1,70 @@
+{% extends 'user/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+{% if message %}
+<script>
+  alert("{{message}}")
+</script>
+{% endif %}
+<form  action="" id="contact-form" method="POST">
+    {% csrf_token %}
+    <div class="container">
+
+    <div class="row">
+        <h2>Search Category </h2>
+        <br>
+        <div class="col-lg-12">
+            <div class="form-box mb-100">
+                <select type="text" name ="first_name" class="form-control" placeholder="ArtistName">
+                    <option value="">All</option>
+                    {% for i in artistsrc %}
+                    <option value="{{i.user.first_name}}" >{{i.user.first_name}}</option>
+                    {% endfor %}
+                </select><br>
+                <br>
+                <div class="submit-info"><br>
+                    <button class="btn" type="submit">Search Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="site-section bg-light block-13">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-12 text-center">
+           
+          <h2 class="font-weight-bold text-black">Artist list</h2>
+        </div>
+      </div>     </div>
+  
+      <div class="nonloop-block-13 owl-carousel">
+        {% for dri in artistsrc %} 
+        <div class="text-center p-3 p-md-5 bg-white">
+    
+          <div class="mb-4">            
+           
+          </div>
+         
+          <div class="">
+           
+            <h3 class="font-weight-light h5">Name-{{ dri.user.first_name}}</h3>
+            <p>Email-{{ dri.user.email}}</p>
+            <p>Phone-{{ dri.mobile}}</p>
+            <p>Address-{{ dri.address}}</p>
+            <td><a href="view_pdt?id={{dri.id}}" class=" btn btn-success">ViewProducts</a></td>
+            <td><a href="feedback?id={{dri.id}}" class=" btn btn-success">Feedback</a></td>
+
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</div>
+{% endblock %}

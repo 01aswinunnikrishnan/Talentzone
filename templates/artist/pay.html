@@ -1,0 +1,79 @@
+{% extends 'artist/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+{% if message %}
+<script>
+  alert("{{message}}")
+</script>
+{% endif %}
+<div class="container mt-5 px-5">
+
+    <div class="mb-4">
+
+        <h2>Confirm order and pay</h2>
+    <span>please make the payment, after that you can enjoy all the features and benefits.</span>
+        
+    </div>
+
+<div class="row">
+
+    <div class="col-md-8">
+        
+
+        <div class="card p-3">
+            <form action="" method="post" >
+                {% csrf_token %}
+            <h6 class="text-uppercase">Payment details</h6>
+            <div class="inputbox mt-3">  <span>Name on card</span><input type="text" name="cardname" class="form-control" required="required"> </div>
+
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="inputbox mt-3 mr-2"> 
+                        <span>Card Number</span> <input type="text" name="cardno" class="form-control" required="required" pattern="[0-9]{16}" > <i class="fa fa-credit-card"></i> 
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="inputbox mt-3 mr-2"> 
+                        <span>Expire</span>  <input type="text" name="expiry" class="form-control" required="required"> <i class="fa fa-credit-card"></i> 
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="inputbox mt-3 mr-2"> 
+                        <span>CVV</span> <input type="text" name="cvv" class="form-control" required="required" pattern="[0-9]{3}"> <i class="fa fa-credit-card"></i>  
+                    </div>
+                </div>
+                <input type="hidden" name="id" value="{{id}}"class="form-control" required="required"> <i class="fa fa-credit-card"></i>  
+
+            </div>
+            <br><br><br>
+            <button type="submit" class="btn btn-success px-3">Make Payment</button>
+
+        </div>
+    </form>
+
+        <div class="mt-4 mb-4 d-flex justify-content-between">
+
+
+                   
+
+
+                  
+
+                    
+
+                </div>
+
+    </div>
+    
+</div>
+  
+
+</div>
+<br><br><br>
+{% endblock %}

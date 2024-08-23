@@ -1,0 +1,46 @@
+
+
+{% extends 'organisation/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+{% if message %}
+<script>
+  alert("{{message}}")
+</script>
+{% endif %}
+
+
+    <div class="container pt-5 hero">
+      <div class="row align-items-center text-center text-md-left">
+        
+        <div class="col-lg-4">
+          <h3 class="mb-4 display-4">WELCOME ORGANISATION</h3>
+         
+        </div>
+        <div class="col-lg-8">
+          <img src="{% static 'images/1x/asset-1.png' %}" alt="Image" class="img-fluid">    
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="site-section">
+      <div class="container">
+
+        
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>  
+
+
+   {% endblock %}
